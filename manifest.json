@@ -8,7 +8,7 @@
     },
     "content_scripts": [
         {
-          "js": ["scripts/app.js"],
+          "js": ["scripts/app.js", "scripts/logger.js"],
           "matches": [
             "https://www.google.com/",
             "https://0370035m.index-education.net/*",
