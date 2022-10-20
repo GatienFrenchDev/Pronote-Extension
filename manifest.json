@@ -3,6 +3,11 @@
     "name": "Pronote ++",
     "description": "Extension pour améliorer le site de Pronote",
     "version": "0.1.0",
+    "icons": {
+      "16": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+    },
     "action": {
         "default_icon": "icon.png"
     },
