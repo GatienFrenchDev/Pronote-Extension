@@ -9,16 +9,20 @@
       "128": "icon.png"
     },
     "action": {
-        "default_icon": "icon.png"
+        "default_icon": "icon.png",
+        "default_popup": "popup.html"
     },
     "content_scripts": [
         {
-          "js": ["scripts/app.js", "scripts/logger.js"],
+          "js": ["popup.js"],
           "matches": [
             "https://www.google.com/",
             "https://0370035m.index-education.net/*",
             "https://educonnect.education.gouv.fr/*"
           ]
         }
-      ]
+      ],
+    "permissions": [
+      "activeTab"
+    ]
 }
