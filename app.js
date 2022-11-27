@@ -8,36 +8,22 @@ let interval = setInterval(() => {
     }
 }, 50);
 
+let matiere = {}
 let intervale = setInterval(() => {
     console.log('a')
     if (document.querySelectorAll('.DonneesListe_DernieresNotes').length == 0) {
         return
-    }
+    }    
     let data = Array.from(document.querySelectorAll('.Gras.Espace'))
     data.shift()
-    let matiere = {}
     data.forEach((element) => {
-        matiere[element.children[1].innerText] = matiere[element.children[0].innerText]
+        matiere[element.children[1].innerText] = element.children[0].innerText
     })
+    if(document.querySelectorAll('#export-pdf').length == 0){
+        let button = document.createElement('button')
+        button.id = "export-pdf"
+        button.innerText = "EXPORT PDF"
+        document.getElementById('GInterface.Instances[2].Instances[1]_Contenu_1').appendChild(button)
+    }
     console.log(matiere)
-    clearInterval(intervale)
-}, 500);
-
-// let done = false
-// document.addEventListener('keypress', () =>{
-//     if (done) return
-//     if (document.querySelectorAll('.DonneesListe_DernieresNotes').length > 0){
-//         done = !done
-//         console.log('hahahha')
-//         let data = Array.from(document.querySelectorAll('.Gras.Espace'))
-//         data.shift()
-//         let matiere = {}
-//         data.forEach((element) => {
-//             matiere[element.children[1].innerText] = matiere[element.children[0].innerText]
-//         })
-//         console.log(matiere)
-//     }
-// })
-
-
-
+}, 100);
