@@ -9,43 +9,44 @@ let interval = setInterval(() => {
 }, 50);
 
 let matiere = {}
+let contenu = []
 let intervale = setInterval(() => {
     if (document.querySelectorAll('.DonneesListe_DernieresNotes').length == 0) {
         return
     }
-    const data = Array.from(document.getElementById('GInterface.Instances[2].Instances[1]_Contenu_1').children)
-    let contenu = []
+    let data = Array.from(document.getElementById('GInterface.Instances[2].Instances[1]_Contenu_1').children)
     for (i = 0; i < data.length; i++) {
+        let res = ""
         try {
-            let res = ""
-            try{
-                res = data[i].children[0].children[0].children[0].children[0].innerText
-            }catch{
-
-            // let res = data[i].children[0].children[0].children[0].children[0].innerText
-
-            }
-            if (!contenu.includes(res)){
-                contenu.push(res)
-            }
-            // if (!data[i].children[0].children[0].children[0].children[0].innerText.includes("Moy.")) {
-                // console.log(`${data[i].children[0].children[0].children[0].children[0].innerText}`)
-                // let j = i + 1
-                // let res = false
-
-                // while (!res) {
-                //     try {
-                //         res = data[j].children[0].children[0].children[0].children[0].innerText.includes("Moy.")
-                //     } catch {
-
-                //     }
-                // }
-
-                
-            //     i = j
-            // }
-            // data.push(data[i].children[0].children[0].children[0].children[0].innerText)
+            res = data[i].children[0].children[0].children[0].children[0].innerText
         } catch {
+        }
+        if (!contenu.includes(res) && !res.includes('Moy.') && res != "") {
+            matiere[res] = []
+            /*
+            la valeur de res est tte les matieres
+            */
+            let j = i + 1
+            let note = ""
+            let key = res
+            try {
+                note = data[j].children[0].children[0].children[0].children[0].children[0].innerText
+            } catch {
+                note = "Moy"
+            }
+            while (!note.includes('Moy.')) {
+                j++
+                try {
+                    note = document.getElementById('GInterface.Instances[2].Instances[1]_Contenu_1').children[j].children[0].children[0].children[0].children[0].innerText
+                } catch {
+                    note = "Moy."
+                }
+                if (note.includes('Moy.')) {
+                    let content = matiere[key]
+                    content.push(note)
+                    matiere[key] = content
+                }
+            }
         }
     }
 
@@ -76,6 +77,7 @@ let intervale = setInterval(() => {
         document.getElementById('export-pdf').addEventListener(('click'), () => {
             clearInterval(intervale)
             console.log('RESULTAT :')
+            console.log(matiere)
             console.log(contenu)
         })
     }
