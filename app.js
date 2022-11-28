@@ -18,15 +18,16 @@ let intervale = setInterval(() => {
     }
     let data = Array.from(document.getElementById('GInterface.Instances[2].Instances[1]_Contenu_1').children)
     for (i = 0; i < data.length; i++) {
-        let res = ""
-        try {
-            res = data[i].children[0].children[0].children[0].children[0].innerText
-        } catch {
-        }
-        if(res == ""){
+
+        // checl que le bloc *data[i]* soit une matière ou bien une note
+        if(!(data[i].innerHTML.includes("Moy. ") || data[i].innerHTML.includes('div class="Gras Espace"'))){
             continue
         }
-        if (!contenu.includes(res) && !res.includes('Moy.') && res != "") {
+
+        let res = data[i].children[0].children[0].children[0].children[0].innerText
+
+        // check si le bloc est une matière
+        if (!res.includes('Moy.')) {
             if(ex_matiere == "empty"){
                 ex_matiere = res
             }
@@ -35,31 +36,6 @@ let intervale = setInterval(() => {
                 Motes = []
                 ex_matiere = res
             }
-            // matiere[res] = []
-            /*
-            la valeur de res est tte les matieres
-            */
-            // let j = i + 1
-            // let note = ""
-            // let key = res
-            // try {
-            //     note = data[j].children[0].children[0].children[0].children[0].children[0].innerText
-            // } catch {
-            //     note = "Moy"
-            // }
-            // while (!note.includes('Moy.')) {
-            //     j++
-            //     try {
-            //         note = document.getElementById('GInterface.Instances[2].Instances[1]_Contenu_1').children[j].children[0].children[0].children[0].children[0].innerText
-            //     } catch {
-            //         note = "Moy."
-            //     }
-            //     if (note.includes('Moy.')) {
-            //         let content = matiere[key]
-            //         content.push(note)
-            //         matiere[key] = content
-            //     }
-            // }
         }
         else{
             Motes.push(res)
