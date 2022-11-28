@@ -9,9 +9,8 @@ let interval = setInterval(() => {
 }, 50);
 
 let matiere = {}
-let contenu = []
 let ex_matiere = "empty"
-let Motes = []
+let notes_matiere_actuelle = []
 let intervale = setInterval(() => {
     if (document.querySelectorAll('.DonneesListe_DernieresNotes').length == 0) {
         return
@@ -20,7 +19,7 @@ let intervale = setInterval(() => {
     for (i = 0; i < data.length; i++) {
 
         // checl que le bloc *data[i]* soit une matière ou bien une note
-        if(!(data[i].innerHTML.includes("Moy. ") || data[i].innerHTML.includes('div class="Gras Espace"'))){
+        if (!(data[i].innerHTML.includes("Moy. ") || data[i].innerHTML.includes('div class="Gras Espace"'))) {
             continue
         }
 
@@ -28,17 +27,23 @@ let intervale = setInterval(() => {
 
         // check si le bloc est une matière
         if (!res.includes('Moy.')) {
-            if(ex_matiere == "empty"){
-                ex_matiere = res
+            // check si *ex_matiere* a déjà était bougé
+            if (ex_matiere != "empty") {
+                matiere[ex_matiere] = notes_matiere_actuelle
+                notes_matiere_actuelle = []
             }
-            else{
-                matiere[ex_matiere] = Motes
-                Motes = []
-                ex_matiere = res
-            }
+            // cas ou *ex_matiere* n'avait était encore jamais bougé
+            ex_matiere = res
         }
-        else{
-            Motes.push(res)
+        else {
+            res = res.split("\n")
+            // for (i = 0; i < res.length; i++) {
+            //     if (!isNaN(Number(res[i].replace(",", ".")))) {
+            //         note.push(Number(res[i].replace(",", ".")))
+            //     }
+            // }
+            // notes_matiere_actuelle.push(note)
+            notes_matiere_actuelle.push(res)
         }
     }
 
@@ -68,9 +73,11 @@ let intervale = setInterval(() => {
         document.getElementById('GInterface.Instances[2].Instances[1]_Contenu_1').appendChild(div)
         document.getElementById('export-pdf').addEventListener(('click'), () => {
             clearInterval(intervale)
-            console.log('RESULTAT :')
-            console.log(matiere)
-            console.log(contenu)
+            generateFile(matiere)
         })
     }
 }, 100);
+
+function generateFile(data){
+    console.log(data)
+}
