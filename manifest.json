@@ -1,24 +1,28 @@
 {
-    "manifest_version": 3,
-    "name": "Pronote ++",
-    "description": "Extension pour améliorer le site de Pronote",
-    "version": "0.1.0",
-    "icons": {
-      "16": "icon.png",
-      "48": "icon.png",
-      "128": "icon.png"
-    },
-    "content_scripts": [
-        {
-          "js": ["app.js"],
-          "matches": [
-            "https://www.google.com/",
-            "https://0370035m.index-education.net/*",
-            "https://educonnect.education.gouv.fr/*"
-          ]
-        }
+  "manifest_version": 3,
+  "name": "Pronote ++",
+  "description": "Extension pour améliorer le site de Pronote",
+  "version": "0.1.0",
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+  "content_scripts": [
+    {
+      "js": [
+        "app.js"
       ],
-    "permissions": [
-      "activeTab"
-    ]
+      "matches": [
+        "https://*.index-education.net/pronote/*"
+      ]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "tabs",
+    "scripting"
+  ]
 }
