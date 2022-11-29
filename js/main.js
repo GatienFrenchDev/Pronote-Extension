@@ -13,6 +13,50 @@ document.getElementById('la-moyenne').innerHTML = `Moyenne Générale de l'élè
 document.getElementById('la-moyenne-classe').innerHTML = `Moyenne Générale de la classe<br>${infos.moyenne_g}/20`
 
 
+let nom_moyennes = []
+let moyennes = []
+for (const [key, value] of Object.entries(data)) {
+    nom_moyennes.push(key)
+    moyennes.push(parseFloat(value[0]))
+}
+moyennes.sort()
+
+const canvas_ = document.getElementById('moyenne-g')
+const ctx = canvas_.getContext('2d');
+const myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: nom_moyennes,
+        datasets: [{
+            data: moyennes,
+            backgroundColor: [
+                'rgba(54, 162, 235, 1)',
+            ],
+            borderColor: [
+                'rgba(54, 162, 235, 1)',
+            ],
+            borderWidth: 1.5
+        }]
+    },
+    options: {
+        plugins: {
+            legend: {
+                display: false
+            },
+        },
+        scales: {
+            y: {
+                beginAtZero: true,
+                max: 20
+            }
+        }
+    }
+});
+
+
+
+
+
 function toogledarkmode() {
     const btn = document.getElementById("dark-mode")
     if (btn.classList.contains('dark')) {
