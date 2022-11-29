@@ -9,17 +9,26 @@ document.getElementById('dark-mode').addEventListener(("click"), () =>{
 })
 
 document.getElementById('grd-titre').innerText = `Profil de ${infos.nom}`
-document.getElementById('la-moyenne').innerHTML = `Moyenne Générale de l'élève<br>${infos.moyenne_g}/20`
+document.getElementById('la-moyenne').innerHTML = `Moyenne Générale de l'élève<br>${infos.moyenne}/20`
 document.getElementById('la-moyenne-classe').innerHTML = `Moyenne Générale de la classe<br>${infos.moyenne_g}/20`
 
 
+let data_moyenne = []
 let nom_moyennes = []
 let moyennes = []
 for (const [key, value] of Object.entries(data)) {
-    nom_moyennes.push(key)
-    moyennes.push(parseFloat(value[0]))
+    data_moyenne.push({
+        "note": parseFloat(value[0]),
+        "nom": key
+    })
 }
-moyennes.sort()
+
+data_moyenne.sort((a, b) => a.note - b.note)
+
+data_moyenne.forEach(value =>{
+    moyennes.push(value["note"])
+    nom_moyennes.push(value["nom"])
+})
 
 const canvas_ = document.getElementById('moyenne-g')
 const ctx = canvas_.getContext('2d');
@@ -53,7 +62,72 @@ const myChart = new Chart(ctx, {
     }
 });
 
+Object.keys(data).forEach(key =>{
+    let notes = data[key]
+    let average = notes.shift()
 
+    const div = document.createElement('div')
+    div.classList.add('cellule')
+    const grille = document.getElementById('grille-principale')
+    const titre_matière = document.createElement('h4')
+    titre_matière.appendChild(document.createTextNode(`${key}` + ` - [${average}]`))
+    const canvas = document.createElement('canvas')
+    div.appendChild(titre_matière)
+    div.appendChild(canvas)
+    grille.appendChild(div)
+    
+    let data_eleve = []
+    let data_classe = []
+    let label = []
+    notes.forEach(element =>{
+        data_eleve.push(element[0])
+        data_classe.push(element[2])
+        label.push(element[1])
+    })
+    if(data_eleve.length == 1 && data_classe.length == 1){
+        label.push(label[0])
+        data_eleve.push(data_eleve[0])
+        data_classe.push(data_classe[0])
+    }
+
+    const ctx = canvas.getContext('2d');
+    const myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: label.reverse(),
+            datasets: [{
+                label: "Notes de l'élève",
+                data: data_eleve.reverse(),
+                backgroundColor: [
+                    'rgba(54, 162, 235, 1)',
+                ],
+                borderColor: [
+                    'rgba(54, 162, 235, 1)',
+                ],
+                borderWidth: 1.5
+            },
+            {
+                label: "Notes moyenne de la classe",
+                data: data_classe.reverse(),
+                backgroundColor: [
+                    '#7d7d7d',
+                ],
+                borderColor: [
+                    '#7d7d7d',
+                ],
+                borderWidth: 1.5
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 20
+                }
+            }
+        }
+    });
+})
 
 
 
