@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Pronote ++",
-  "description": "Extension pour améliorer le site de Pronote",
+  "description": "Affiche tes notes et ton évolution trimestrielle.",
   "version": "0.1.0",
   "icons": {
     "16": "icon.png",
