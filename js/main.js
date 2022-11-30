@@ -95,7 +95,7 @@ Object.keys(data).forEach(key =>{
         data: {
             labels: label.reverse(),
             datasets: [{
-                label: "Notes de l'élève",
+                label: "Note de l'élève",
                 data: data_eleve.reverse(),
                 backgroundColor: [
                     'rgba(54, 162, 235, 1)',
@@ -106,7 +106,7 @@ Object.keys(data).forEach(key =>{
                 borderWidth: 1.5
             },
             {
-                label: "Notes moyenne de la classe",
+                label: "Note moyenne de la classe",
                 data: data_classe.reverse(),
                 backgroundColor: [
                     '#7d7d7d',

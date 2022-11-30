@@ -38,7 +38,7 @@ let intervale = setInterval(() => {
             notes_matiere_actuelle.push(res)
         }
     }
-    
+
     if (document.querySelectorAll('#export-pdf').length == 0) {
         let div = document.createElement('div')
         div.id = "abordable"
@@ -87,7 +87,17 @@ function generateFile(data, infos) {
                     }
                     else {
                         // cas ou note eleve
-                        item = parseFloat(item.replace(",", "."))
+                        // ex valeur item : "5,00/10" ou bien "19,00"
+
+                        // cas ou note pas sur 20
+                        if (item.split("/").length > 1) {
+                            item = item.replace(",", ".")
+                            let numerateur = parseFloat(item.split("/")[0])
+                            let denominateur = parseFloat(item.split("/")[1])
+                            item = (numerateur * 20) / denominateur
+                        } else {
+                            item = parseFloat(item.replace(",", "."))
+                        }
                     }
                     haha.push(item)
                 }
@@ -98,6 +108,6 @@ function generateFile(data, infos) {
         })
     }
     document.getElementById('GInterface.Instances[2]_detail').innerHTML = `<div style="width: 800px;"><canvas id="acquisitions"></canvas></div>`
-    chrome.runtime.sendMessage({ "data": donnes, "infos": infos }, () => {})
+    chrome.runtime.sendMessage({ "data": donnes, "infos": infos }, () => { })
 
 }
