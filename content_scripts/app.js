@@ -60,7 +60,7 @@ let intervale = setInterval(() => {
         button.style.width = "100%"
         button.style.height = "50px"
         button.id = "export-pdf"
-        button.innerText = "Visualer dans Pronote++"
+        button.innerText = "Visualiser dans Pronote++"
         div.appendChild(button)
         document.getElementById('GInterface.Instances[2].Instances[1]_Contenu_1').appendChild(div)
         let info = {
