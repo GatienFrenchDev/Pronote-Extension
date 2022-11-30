@@ -1,6 +1,6 @@
 /*!
 * Extension [Pronote ++]
-* https://gatienfrenchdev.github.io/pronote-pp
+* https://github.com/GatienFrenchDev/pronote-pp
 * License : GNU GPLv3
 * Codé par @GatienFrenchDev
 */
