@@ -89,10 +89,6 @@ div h4 {
     text-align: center;
 }
 
-h2#data {
-    display: none;
-}
-
 h3#grd-titre {
     animation: fadein 1.5s;
     font-family: 'Roboto';

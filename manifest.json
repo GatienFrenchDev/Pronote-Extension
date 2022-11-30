@@ -4,14 +4,14 @@
   "description": "Affiche tes notes et ton évolution trimestrielle.",
   "version": "0.1.0",
   "icons": {
-    "16": "icon.png",
-    "48": "icon.png",
-    "128": "icon.png"
+    "16": "img/icon.png",
+    "48": "img/icon.png",
+    "128": "img/icon.png"
   },
   "content_scripts": [
     {
       "js": [
-        "app.js"
+        "extension.js"
       ],
       "matches": [
         "https://*.index-education.net/pronote/*"

@@ -1,7 +1,6 @@
 const params = new URLSearchParams(window.location.search)
 const data = JSON.parse(decodeURI(params.get("d")))
 const infos = JSON.parse(decodeURI(params.get("i")))
-// console.log(localStorage.getItem("data"))
 
 
 document.getElementById('dark-mode').addEventListener(("click"), () =>{
