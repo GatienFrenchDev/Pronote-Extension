@@ -8,4 +8,5 @@ Pour installer Pronote ++ vous devez utiliser un **navigateur basé sur Chromium
 
 ## Crédits
 logo : https://dribbble.com/shots/15579215-Pronote-application-logo
+
 librairie graphique : https://www.chartjs.org/
