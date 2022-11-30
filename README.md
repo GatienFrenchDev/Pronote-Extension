@@ -4,12 +4,12 @@
 ![image](https://user-images.githubusercontent.com/80203026/204807417-06567f0b-5d8d-4949-bcfb-809e90ef2281.png)
 
 ## Installation
-- Pour *installer Pronote ++* depuis un navigateur `basé sur chromium` (chrome, brave, opera, ...) : 
+- Pour **installer Pronote ++** depuis un navigateur `basé sur chromium` (chrome, brave, opera, ...) : 
   
   Rendez vous sur ce lien : [Pronote ++ sur Chrome Store](https://chrome.google.com/webstore/detail/pronote/ "Chrome Web Store")
 
 
-- Pour *installer Pronote* ++ depuis `Firefox` :
+- Pour **installer Pronote** ++ depuis `Firefox` :
   
   Rendez vous sur ce lien : [Pronote ++ sur Mozilla Addons](https://addons.mozilla.org/fr/firefox/addon/pronote/ "Mozilla Addons")
 
