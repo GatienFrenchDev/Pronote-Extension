@@ -97,7 +97,15 @@ function generateFile(data, infos) {
                 if (!item.includes("Corrigé") && !item.includes("Sujet")) {
                     if (item.includes("Moy. ")) {
                         // cas ou moyenne matiere
-                        item = parseFloat((item.split(" : ")[1]).replace(",", "."))
+                        item = item.split(" : ")[1]
+                        if (item.split("/").length > 1) {
+                            item = item.replace(",", ".")
+                            let numerateur = parseFloat(item.split("/")[0])
+                            let denominateur = parseFloat(item.split("/")[1])
+                            item = (numerateur * 20) / denominateur
+                        } else {
+                            item = parseFloat(item.replace(",", "."))
+                        }
                     }
                     else if (item.includes("Aujourd")){
                         const today = new Date();
