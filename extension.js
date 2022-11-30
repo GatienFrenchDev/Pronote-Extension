@@ -1,7 +1,7 @@
 /*!
 * Extension [Pronote ++]
 * https://github.com/GatienFrenchDev/pronote-pp
-* License : GNU GPLv3
+* License : MIT
 * Codé par @GatienFrenchDev
 */
 
@@ -97,7 +97,6 @@ function generateFile(data, infos) {
             donnes[matiere] = table
         })
     }
-    document.getElementById('GInterface.Instances[2]_detail').innerHTML = `<div style="width: 800px;"><canvas id="acquisitions"></canvas></div>`
     chrome.runtime.sendMessage({ "data": donnes, "infos": infos }, () => {})
 
 }
