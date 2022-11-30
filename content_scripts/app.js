@@ -1,7 +1,7 @@
 /*!
 * Extension [Pronote ++]
 * https://github.com/GatienFrenchDev/pronote-pp
-* License : GNU GPLv3
+* License : MIT
 * Codé par @GatienFrenchDev
 */
 
@@ -16,7 +16,7 @@ let intervale = setInterval(() => {
     let data = Array.from(document.getElementById('GInterface.Instances[2].Instances[1]_Contenu_1').children)
     for (i = 0; i < data.length; i++) {
 
-        // checl que le bloc *data[i]* soit une matière ou bien une note
+        // check que le bloc *data[i]* soit une matière ou bien une note
         if (!(data[i].innerHTML.includes("Moy. ") || data[i].innerHTML.includes('div class="Gras Espace"'))) {
             continue
         }
@@ -38,6 +38,16 @@ let intervale = setInterval(() => {
             notes_matiere_actuelle.push(res)
         }
     }
+
+    document.querySelectorAll('.as-li.c_1.ie-ellipsis').forEach(item => {
+        item.addEventListener(('click'), () => {
+            setTimeout(function(){
+                matiere = {}
+                ex_matiere = "empty"
+                notes_matiere_actuelle = []
+            }, 800);
+        })
+    })
 
     if (document.querySelectorAll('#export-pdf').length == 0) {
         let div = document.createElement('div')
@@ -68,9 +78,17 @@ let intervale = setInterval(() => {
 }, 100);
 
 function generateFile(data, infos) {
+    console.log(data)
     let donnes = {}
     for (const [key, value] of Object.entries(data)) {
-        const matiere = key.split('\n')[1]
+        let matiere = key.split('\n')[1]
+        if (donnes.hasOwnProperty(matiere)) {
+            let temp = donnes[matiere]
+            donnes[`${matiere} #1`] = temp
+            delete donnes[matiere]
+            matiere = `${matiere} #2`
+        }
+
         const moy_g = key.split('\n')[0]
         donnes[matiere] = [moy_g]
         value.forEach(element => {
@@ -80,6 +98,10 @@ function generateFile(data, infos) {
                     if (item.includes("Moy. ")) {
                         // cas ou moyenne matiere
                         item = parseFloat((item.split(" : ")[1]).replace(",", "."))
+                    }
+                    else if (item.includes("Aujourd")){
+                        const today = new Date();
+                        item = `${today.getDate()}/${today.getMonth()+1}`
                     }
                     else if (item.includes("le ")) {
                         // cas ou date
