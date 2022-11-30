@@ -11,7 +11,7 @@
   "content_scripts": [
     {
       "js": [
-        "content_scripts/extension.js"
+        "content_scripts/app.js"
       ],
       "matches": [
         "https://*.index-education.net/pronote/*"
