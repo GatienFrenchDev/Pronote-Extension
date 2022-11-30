@@ -1,6 +1,6 @@
 let interval = setInterval(() => {
     try {
-        document.querySelectorAll('.ibe_util_photo')[0].children[0].src = "https://cdn.discordapp.com/attachments/898909929509908501/1034523357078626324/pp.jpg"
+        document.querySelectorAll('.ibe_util_photo')[0].children[0].src = ""
         clearInterval(interval)
     }
     catch {
