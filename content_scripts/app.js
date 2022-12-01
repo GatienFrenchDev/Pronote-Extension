@@ -107,7 +107,7 @@ function generateFile(data, infos) {
                             item = parseFloat(item.replace(",", "."))
                         }
                     }
-                    else if(item.includes("Hier"){
+                    else if(item.includes("Hier")){
                       const today = new Date();
                       item = `${today.getDate()-1}/${today.getMonth()+1}`
                     }
