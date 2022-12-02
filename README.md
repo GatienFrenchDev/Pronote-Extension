@@ -2,9 +2,7 @@
 <div style="display: flex">
 <img alt="Chrome" src="https://img.shields.io/chrome-web-store/v/ipoinflndgnlmgminbilaoajdlfbhgbb?label=%5BChrome%5D%20Pronote%20%2B%2B" />
 <img alt="Firefox" src="https://img.shields.io/amo/v/pronote?label=%5BFirefox%5D%20Pronote%20%2B%2B" />
-<img alt="Licence" src="https://img.shields.io/badge/Licence-MIT-red?cacheSeconds=2592000" />
-
-</div>
+  </div>
 
 **Pronote ++** est une extension  qui vous permet de **visualer vos notes** d'un trimestre sur des graphiques. Vous pouvez ainsi acceder à l'évolution de vos notes au fil du trimestre et une comparaison des moyennes entre chaque matière.
 
