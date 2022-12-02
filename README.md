@@ -1,8 +1,8 @@
 # 📊 Pronote ++
 <div style="display: flex">
-<img alt="Version" src="https://img.shields.io/chrome-web-store/v/ipoinflndgnlmgminbilaoajdlfbhgbb?label=%5BChrome%5D%20Pronote%20%2B%2B" />
-<img alt="Version" src="https://img.shields.io/amo/v/pronote?label=%5BFirefox%5D%20Pronote%20%2B%2B" />
-<img alt="Version" src="https://img.shields.io/badge/version-0.1.2-blue.svg?cacheSeconds=2592000" />
+<img alt="Chrome" src="https://img.shields.io/chrome-web-store/v/ipoinflndgnlmgminbilaoajdlfbhgbb?label=%5BChrome%5D%20Pronote%20%2B%2B" />
+<img alt="Firefox" src="https://img.shields.io/amo/v/pronote?label=%5BFirefox%5D%20Pronote%20%2B%2B" />
+<img alt="Licence" src="https://img.shields.io/badge/Licence-MIT-red?cacheSeconds=2592000" />
 
 </div>
 
