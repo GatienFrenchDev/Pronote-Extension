@@ -1,6 +1,6 @@
 # 📊 Pronote ++
 <div style="display: flex">
-<img alt="Chrome" src="https://img.shields.io/chrome-web-store/v/ipoinflndgnlmgminbilaoajdlfbhgbb?label=%5BChrome%5D%20Pronote%20%2B%2B" />
+<img alt="Chrome" src="https://img.shields.io/chrome-web-store/v/plkafnalbppdppjehbebdocafmodbbdk" />
 <img alt="Firefox" src="https://img.shields.io/amo/v/pronote?label=%5BFirefox%5D%20Pronote%20%2B%2B" />
   </div>
 
@@ -11,7 +11,7 @@
 ## Installation
 - Pour **installer Pronote ++** depuis un navigateur `basé sur chromium` (chrome, brave, opera, ...) : 
   
-  Rendez vous sur ce lien : [Pronote ++ sur Chrome Store](https://chrome.google.com/webstore/detail/pronote/ "Chrome Web Store")
+  Rendez vous sur ce lien : [Pronote ++ sur Chrome Store](https://chrome.google.com/webstore/detail/pronote-%20%20/plkafnalbppdppjehbebdocafmodbbdk "Chrome Web Store")
 
 
 - Pour **installer Pronote** ++ depuis `Firefox` :
