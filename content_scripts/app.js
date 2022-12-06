@@ -115,6 +115,10 @@ function generateFile(data, infos) {
                         const today = new Date();
                         item = `${today.getDate()}/${today.getMonth()+1}`
                     }
+                    else if (item.includes("Demain")){
+                        const today = new Date();
+                        item = `${today.getDate()+1}/${today.getMonth()+1}`
+                    }
                     else if (item.includes("le ")) {
                         // cas ou date
                         item = item.split("le ")[1]
