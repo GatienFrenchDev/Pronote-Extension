@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Pronote ++",
   "description": "Affiche tes notes et ton évolution trimestrielle.",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "icons": {
     "16": "img/icon.png",
     "48": "img/icon.png",
