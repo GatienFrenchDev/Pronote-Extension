@@ -1,4 +1,7 @@
 # 📊 Pronote ++
+
+_(An old project I built during high school. This extension is no longer maintained.)_
+
 <div style="display: flex">
 <img alt="Chrome" src="https://img.shields.io/chrome-web-store/v/plkafnalbppdppjehbebdocafmodbbdk" />
 <img alt="Firefox" src="https://img.shields.io/amo/v/pronote?label=%5BFirefox%5D%20Pronote%20%2B%2B" />
